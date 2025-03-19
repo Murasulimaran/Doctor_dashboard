@@ -1,0 +1,132 @@
+
+
+<style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(246, 246, 248);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        max-width: 800px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    .container h2{
+        text-align: center;
+        color: #8d8a8a;
+        margin-bottom: 15px;
+    }
+    .register-box{
+        width: 100%;
+    }
+    .container form{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    .input-group{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    input{
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+    .username-group {
+        display: flex;
+        align-items: center;
+    }
+    .username-group span {
+        padding: 10px;
+        background-color: rgb(241, 241, 245);
+        border: 1px solid whitesmoke;
+        border-right: none;
+        border-radius: 10px 10px 10px;
+    }
+    .btn {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        grid-column: span 2;
+    }
+    .register-box p{
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+    .register-box a{
+        text-decoration: none;
+        color: #007bff;
+    }
+    </style>
+<body>
+    <div class="container">
+        <div class="register-box">
+            <h2>Create an Account</h2>
+
+             {% for message in messages %}
+                <span style="color:red;" class="alert alert-{{ message.tags }}">{{ message }}</span>
+            {% endfor %}
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <div class="username-group">
+                        <span>@</span>
+                        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
+                </div>
+
+                <button type="submit" class="btn">Create Account</button>
+            </form>
+            <p>Already have an account? <a href="/">Log in</a></p>
+        </div>
+    </div>
+</body>

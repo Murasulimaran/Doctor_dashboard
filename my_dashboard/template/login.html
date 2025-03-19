@@ -1,0 +1,162 @@
+
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        background: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        max-width: 400px;
+        width: 100%;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .logo img {
+        max-width: 100px;
+    }
+    .logo span {
+        font-size: 24px;
+        font-weight: bold;
+        margin-left: 10px;
+        color: #333;
+    }
+    .card-title {
+        font-size: 22px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: #333;
+        text-align: center;
+    }
+    .text-center {
+        text-align: center;
+    }
+    .form-label {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: #333;
+    }
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+    }
+    .btn {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background: #007bff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .form-check {
+        display: flex;
+        align-items: center;
+    }
+    .form-check-input {
+        margin-right: 5px;
+    }
+    .form-check-label {
+        font-size: 14px;
+        color: #333;
+    }
+    .small {
+        font-size: 12px;
+        color: #666;
+    }
+    .credits {
+        text-align: center;
+        font-size: 12px;
+        margin-top: 10px;
+        color: #666;
+    }
+    .credits a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    .btn {
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.btn-link {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    text-align: center;
+}
+
+.btn-link:hover {
+    color: #e0e0e0;
+}
+  form a {
+    text-decoration: none;
+    color: #007bff;
+  }
+</style>
+
+<body>
+
+<div class="container">
+<div class="logo">
+    <h4>Welcome Doctor's Dashborad</h4>
+</div>
+
+<h5 class="card-title text-center">Login to Your Account</h5>
+<p class="text-center small">Enter your username & password to login</p>
+
+     {% for message in messages %}
+        <span style="color:red;" class="alert alert-{{ message.tags }}">{{ message }}</span>
+    {% endfor %}
+
+    <form method="POST" action="">
+        {% csrf_token %}
+
+
+    <label for="username" class="form-label">Username</label>
+    <input type="text" id="username" name="username" class="form-control" required>
+
+    <label for="password" class="form-label">Password</label>
+    <input type="password" id="password" name="password" class="form-control" required>
+
+    <div class="form-check">
+        <input type="checkbox" id="rememberMe" class="form-check-input">
+        <label for="rememberMe" class="form-check-label">Remember me</label>
+    </div>
+
+    <button type="submit" class="btn" name="submit">Login</button>
+
+         <p>Don't have an account? <a href="/register/">Create an account</a></p>
+
+</form>
+
+
+</div>
+
+</body>
+
+
+
+
+
+

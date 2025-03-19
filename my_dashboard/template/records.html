@@ -1,0 +1,141 @@
+<style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(246, 246, 248);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        max-width: 800px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    .container h2{
+        text-align: center;
+        color: #8d8a8a;
+        margin-bottom: 15px;
+    }
+    .register-box{
+        width: 100%;
+    }
+    .container form{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    .input-group{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    input{
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+    .username-group {
+        display: flex;
+        align-items: center;
+    }
+    .username-group span {
+        padding: 10px;
+        background-color: rgb(241, 241, 245);
+        border: 1px solid whitesmoke;
+        border-right: none;
+        border-radius: 10px 10px 10px;
+    }
+    .btn {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        grid-column: span 2;
+    }
+    .register-box p{
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+    .register-box a{
+        text-decoration: none;
+        color: #007bff;
+    }
+    </style>
+
+
+
+<body>
+    <div class="container">
+        <div class="register-box">
+            <h2>Enter Patient  Details</h2>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="name">Patient Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter patient name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="age">Age</label>
+                    <input type="text" id="age" name="age" placeholder="Enter patient age" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone_number">Phone Number</label>
+                    <input type="text" id="phone_number" name="phone_number" placeholder="Enter your Phone Number" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="alternative_number">Alternative Number</label>
+                    <input type="text" id="alternative_number" name="alternative_number" placeholder="Enter your Alternative Number" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" placeholder="Enter your Address" required>
+                </div>
+
+                <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob">
+                    </div>
+
+
+                <div class="input-group">
+                    <label for="status">Update Status</label>
+                    <input type="text" id="status" name="status" placeholder="Enter Status" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="next_meet">Next-Meet</label>
+                    <input type="date" id="next_meet" name="next_meet">
+                </div>
+
+                <button type="submit" class="btn">Save Records</button>
+            </form>
+
+        </div>
+    </div>
+</body>

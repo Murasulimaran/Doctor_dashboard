@@ -1,0 +1,71 @@
+{% load static %}
+{% include 'header.html' %}
+{% include 'nav.html' %}
+
+
+    <main>
+        <section>
+            <div class="main">
+                <div class="pic">
+                    <img src="{% static 'asserts/img/img.2.png' %}" alt="">
+                </div>
+                <div class="heading">
+                    <h5>Dr.Maran, MBBS,(MD)</h5>
+                    <p>General Medicine
+                    <br>Phone No : 987654310
+                    <br>Email : drmaran@gmail.com</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+            <div class="container">
+                <table class="table table-striped" style="margin-top: 20px;">
+                <thead class="table-dark">
+                  <tr>
+                      <th>Id</th>
+                      <th>Name</th>
+                      <th>Age</th>
+                      <th>Phone Number</th>
+                      <th>Alternative Number</th>
+                      <th>Email</th>
+                      <th>Address</th>
+                      <th>DOB</th>
+                      <th>Current Status</th>
+                      <th>Next Meet</th>
+                      <th>Action</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {% for x in datacollection %}
+                       <tr>
+                           <td>{{x.id}}</td>
+                           <td>{{x.name}}</td>
+                           <td>{{x.age}}</td>
+                           <td>{{x.phone_number}}</td>
+                           <td>{{x.alternative_number}}</td>
+                           <td>{{x.email}}</td>
+                           <td>{{x.address}}</td>
+                           <td>{{x.dob}}</td>
+                           <td>{{x.status}}</td>
+                           <td>{{x.next_meet}}</td>
+                             <td>
+                            <!-- Delete button -->
+                            <form method="POST" action="{% url 'delete_record' x.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                       </tr>
+                  {% endfor %}
+
+                </tbody>
+            </table>
+            </div>
+        </section>
+    </main>
+
+
+{% include 'footer.html' %}

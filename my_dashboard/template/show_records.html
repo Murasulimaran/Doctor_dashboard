@@ -1,0 +1,31 @@
+{% load static %}
+{% include 'header.html' %}
+
+<div class="container" style="max-width: 600px;margin-top: 80px;">
+   <div class="card">
+      <div class="card-header">
+         <h1>Patient Records</h1>
+      </div>
+
+      <div class="card-body">
+        <p><strong>Name :</strong> {{ x.name }}</p>
+        <p><strong>Age :</strong> {{ x.age }}</p>
+        <p><strong>Phone Number :</strong> {{ x.phone_number }}</p>
+        <p><strong>Alternative Number :</strong> {{ x.alternative_number }}</p>
+        <p><strong>Email :</strong> {{ x.email }}</p>
+        <p><strong>Address :</strong> {{ x.address }}</p>
+        <p><strong>DOB :</strong> {{ x.dob }}</p>
+        <p><strong>Current Status :</strong> {{ x.status }}</p>
+        <p><strong>Next Meet :</strong> {{ x.next_meet }}</p>
+      </div>
+
+   </div>
+</div>
+<br>
+
+<div class="d-flex justify-content-center align-items-center" style="height: 3vh;">
+    <a class="btn btn-primary m-2" href="/index/" role="button">Back</a>
+    <a class="btn btn-danger m-2" href="" role="button">Delete</a>
+</div>
+
+{% include 'footer.html' %}
